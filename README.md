@@ -1,4 +1,4 @@
-# DOSE Junior Developer Coding Challenge
+# DOSE Developer Coding Challenge
 
 This is your opportunity to show us what you are capabale of!  We are looking for developers who :
 - Write clean, well structured code
