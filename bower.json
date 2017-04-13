@@ -1,0 +1,14 @@
+{
+  "name": "dev_coding_challenge",
+  "dependencies": {
+    "angular": "latest",
+    "bootstrap": "latest",
+    "jquery": "latest",
+    "lodash": "latest",
+    "underscore.string": "latest",
+    "font-awesome": "latest"
+  },
+  "devDependencies": {
+    "angular-mocks": "latest"
+  }
+}

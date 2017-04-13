@@ -1,0 +1,44 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: "Titillium Web", Arial, sans-serif;
+    font-size: 20px;
+    margin: 0;
+}
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+}
+.center {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    border: 3px solid darkblue;
+    padding: 10px;
+}
+.btn {
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid #549EAF;
+    color: #549EAF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Titillium Web";
+    font-size: 20px;
+    line-height: 43px;
+    padding: 0 0.75em;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: all 0.35s ease-in;
+}
+.btn:hover,
+.btn:focus{
+    background-color: #1888A9;
+    color: #183035;
+}

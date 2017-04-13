@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <title>Dev code</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="app/stylesheet/styles.css" />
+</head>
+
+<body ng-app="myApp">
+
+
+
+<div class="container center" ng-controller="songCtrl">
+        KNOWN COMMANDS: <br />
+        "DOSE, show me music" <br />
+        "DOSE, show me food" <br />
+
+    <input type="button" name="rec" class="btn" ng-click="start(); toggle = !toggle" value="{{toggle? 'Speak': 'Stop'}}">
+    </input>
+</div>
+</body>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/lodash/dist/lodash.min.js"></script>
+<script type="text/javascript" src="bower_components/underscore.string/dist/underscore.string.min.js"></script>
+<script type="text/javascript" src="dist/app.js"></script>
+</html>
