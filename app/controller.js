@@ -1,4 +1,4 @@
-angular.module("myApp.controller", []).controller("songCtrl", function($scope, $http, $window) {
+angular.module("myApp.controller", []).controller("demoCtrl", function($scope, $http, $window) {
 
     $scope.toggle =true;
     $scope.text = "Speak";
@@ -67,7 +67,6 @@ angular.module("myApp.controller", []).controller("songCtrl", function($scope, $
         }
     }
     var setInput = function(text) {
-        //$speechInput.val(text);
         $scope.speech = text;
         send();
     }
@@ -87,7 +86,7 @@ angular.module("myApp.controller", []).controller("songCtrl", function($scope, $
         };
         $http.post(postUrl, postData, configDetails)
             .then(function(data, status, headers, config){
-                    console.log(data.data);
+                    //console.log(data.data);
                     if(data.data.result.action == "showmusic")
                         $window.open('https://dose.com/tagged/music','_blank');
                     else if (data.data.result.action == "showfood")

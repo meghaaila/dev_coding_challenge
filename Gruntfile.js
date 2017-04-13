@@ -67,6 +67,15 @@ module.exports = function (grunt) {
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: [ 'app/app.js', 'app/controller.js' ],
+                dest: 'dist/app.js'
+            }
+        },
         bower: {
             install: {
                 options: {
@@ -89,24 +98,10 @@ module.exports = function (grunt) {
             }
         },
 
-        html2js: {
-            dist: {
-                src: [ 'app/*.html' ],
-                dest: 'tmp/templates.js'
-            }
-        },
 
         clean: ["dist", 'bower_components'],
 
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                src: [ 'app/*.js' ],
-                dest: 'dist/app.js'
-            }
-        },
+
         jshint: {
             all: [ 'Gruntfile.js', 'app/*.js' ]
         },
@@ -120,15 +115,15 @@ module.exports = function (grunt) {
         },
         watch: {
             dev: {
-                files: [ 'Gruntfile.js', 'app/*.js', 'app/*.html' ],
-                tasks: [ 'jshint', 'html2js:dist', 'concat:dist', 'clean:temp' ],
+                files: [ 'Gruntfile.js', 'app/*.js' ],
+                tasks: [ 'jshint', 'concat:dist', 'clean:temp' ],
                 options: {
                     atBegin: true
                 }
             },
             min: {
-                files: [ 'Gruntfile.js', 'app/*.js', 'app/*.html' ],
-                tasks: [ 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist', 'clean:temp', 'uglify:dist' ],
+                files: [ 'Gruntfile.js', 'app/*.js' ],
+                tasks: [ 'jshint', 'karma:unit',  'concat:dist', 'clean:temp', 'uglify:dist' ],
                 options: {
                     atBegin: true
                 }
@@ -148,9 +143,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('dev', [ 'bower', 'connect:server', 'watch:dev' ]);
-    grunt.registerTask('test', [ 'bower', 'jshint', 'karma:continuous' ]);
-    grunt.registerTask('minified', [ 'bower', 'connect:server', 'watch:min' ]);
-    grunt.registerTask('package', [ 'bower', 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist', 'uglify:dist',
-        'clean:temp', 'compress:dist' ]);
+    grunt.registerTask('dev', [ 'bower', 'concat:dist','connect:server', 'watch:dev' ]);
 };
